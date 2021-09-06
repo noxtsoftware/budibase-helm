@@ -14,9 +14,8 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-staging
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "https://budi.noxt.de"
-
-
+    nginx.ingress.kubernetes.io/cors-allow-origin: $http_origin
+    nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
 spec:
   {{- if .Values.ingress.tls }}
   tls:
